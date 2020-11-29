@@ -3,6 +3,8 @@ import Header from '../../components/Header';
 import { ContentContainer, Form, AdsBlock } from './styles';
 import { Alert, Button, Container, FormControl, InputGroup, Spinner } from 'react-bootstrap';
 import ShortenerService from '../../services/shortenerService';
+import { Link } from 'react-router-dom';
+import vars from '../../configs/vars';
 
 class HomePage extends React.Component {
     constructor(props) {
@@ -21,25 +23,48 @@ class HomePage extends React.Component {
         
         const { url } = this.state;
     
-        this.setState({ isLoading: true, errorMessage: '' });
-
         if(!url)
         {
             this.setState({ isLoading: false, errorMessage: 'Informe uma url para encurtar.' });
         }
-        else 
+        else if(!this.isValidUrl(url))
         {
+            this.setState({ isLoading: false, errorMessage: 'Informe uma URL válida!' });
+        }
+        else
+        {
+            this.setState({ isLoading: true, errorMessage: '' });
+
             try {
                 const service = new ShortenerService();
                 const result = await service.generate({ url });
-
-                this.setState({ isLoading: false, code: result.code });
-
+                console.log('O POST FOI FEITO!');
+                console.log(result)
+                if(result.status) {
+                    this.setState({ isLoading: false, code: result.link.code });
+                } else {
+                    this.setState({ isLoading: false, errorMessage : result.msg });
+                }
+    
             } catch(error) {
                 this.setState({ isLoading: false, errorMessage: 'Ops, ocorreu um errinho básico...' });
             }
-        }
+        }        
     }
+
+    isUrlExists = (string) => {
+
+    }
+
+    isValidUrl = (string) => {
+        try {
+          new URL(string);
+        } catch (_) {
+          return false;  
+        }
+      
+        return true;
+      }
 
     copyToClipboard = () => {
         const element = this.inputURL;
@@ -69,12 +94,12 @@ class HomePage extends React.Component {
                         {isLoading ? (
                             <Spinner animation="border" />
                         ) : (
-                            code && (
+                            code && !errorMessage && (
                                 <>
                                     <InputGroup className="mb-3">
                                         <FormControl
                                             autoFocus={true}
-                                            defaultValue={`http://pitu.tk/${code}`}
+                                            defaultValue={vars.HOST_APP + code}
                                             ref={(input) => this.inputURL = input}
                                         />
                                         <InputGroup.Append>
@@ -86,7 +111,7 @@ class HomePage extends React.Component {
                                             </Button>
                                         </InputGroup.Append>
                                     </InputGroup>                                     
-                                    <p>Para acompanhar as estatísticas, acesse https://pitu.tk/{code}:</p>
+                                    <p>Para acompanhar as estatísticas, acesse <Link to={"/" + code + "/stats"}>{vars.HOST_APP + code}/stats</Link></p>
                                 </>
                             )
                         )}
