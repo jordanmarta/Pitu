@@ -7,6 +7,12 @@ function findByCode(code: string) {
     })
 }
 
+function findByURL(url: string) {
+    return linkModel.findOne<ILinkModel>({
+        where: { url } 
+    })
+}
+
 function add(link: Link) {
     return linkModel.create<ILinkModel>(link);
 }
@@ -22,6 +28,7 @@ async function hit(code: string) {
 
 export default {
     findByCode,
+    findByURL,
     add,
     hit
 }
