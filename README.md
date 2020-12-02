@@ -21,6 +21,9 @@ O backend (Web API) foi feito utilizando Node JS com typescript, Express, Sequel
 
 - npm start
 
+Link da aplicação publicada na AWS:
+http://www.pitujsmta.tk/
+
 ![imagem1](https://github.com/jordanmarta/pitu/blob/main/frontend/public/pitu_img_1.jpg)
 
 ![imagem2](https://github.com/jordanmarta/pitu/blob/main/frontend/public/pitu_img_2.jpg)
