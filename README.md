@@ -1,5 +1,6 @@
 ## Pitu
 Aplicação de encurtamento de URL's desenvolvida durante Semana Web Full Stack do Luiz Tools.
+
 O backend foi feito utilizando Node JS typescript, Express e base de dados MySql Server.
 
 ## Para rodar a aplicação executar os seguintes comandos:
@@ -14,4 +15,4 @@ npm start
 
 ![imagem1](https://github.com/jordanmarta/pitu/blob/main/frontend/public/pitu_img_1.jpg)
 
-![imagem1](https://github.com/jordanmarta/pitu/blob/main/frontend/public/pitu_img_2.jpg
+![imagem2](https://github.com/jordanmarta/pitu/blob/main/frontend/public/pitu_img_2.jpg
