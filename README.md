@@ -15,4 +15,4 @@ npm start
 
 ![imagem1](https://github.com/jordanmarta/pitu/blob/main/frontend/public/pitu_img_1.jpg)
 
-![imagem2](https://github.com/jordanmarta/pitu/blob/main/frontend/public/pitu_img_2.jpg
+![imagem2](https://github.com/jordanmarta/pitu/blob/main/frontend/public/pitu_img_2.jpg)
