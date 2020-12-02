@@ -1,15 +1,23 @@
 ## Pitu
 Aplicação de encurtamento de URL's desenvolvida durante Semana Web Full Stack do Luiz Tools.
 
-O backend foi feito utilizando Node JS typescript, Express e base de dados MySql Server.
+O backend (Web API) foi feito utilizando Node JS com typescript, Express, Sequelize e base de dados MySql Server.
 
-## Para rodar a aplicação executar os seguintes comandos:
+## Para rodar a API executar os seguintes passos:
 
-yarn add json-server -D  (Instalar o JSON Server de forma global na máquina)
+Instalação do MySql Local
+
+Criação de um novo Schema (Novo banco) na instância do MySql. (O restante o sequelize irá realizar)
+
+Configurar credencias no arquivo 'database.ts'
 
 npm install
 
-yarn json-server server.json -p 3333 -w  (Rodar o JSON Server na porta 3333)
+npm start
+
+## Para rodar o frontend executar os seguintes passos:
+
+npm install
 
 npm start
 
